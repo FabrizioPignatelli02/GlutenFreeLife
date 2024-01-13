@@ -16,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!utente">
           <a
             class="nav-link active"
             [routerLink]="['/']"
@@ -25,7 +25,7 @@
             >Login</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!utente">
           <a
             class="nav-link"
             [routerLink]="['signup']"
@@ -33,6 +33,20 @@
             >Signup</a
           >
         </li>
+        <li class="nav-item" *ngIf="utente">
+          <a class="nav-link" [routerLink]="['home']" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <h6 *ngIf="utente">Benvenuto {{ utente.user.nome }}</h6>
+        <button
+          type="button"
+          *ngIf="utente"
+          class="float-end"
+          (click)="logout()"
+        >
+          logout
+        </button>
       </ul>
     </div>
   </div>
