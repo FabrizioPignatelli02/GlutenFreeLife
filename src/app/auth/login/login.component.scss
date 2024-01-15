@@ -1,0 +1,39 @@
+.formMain {
+  background-color: #25995b;
+  border-radius: 50px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 100px;
+}
+
+form > div {
+  margin: 20px;
+}
+
+form > div > input {
+  border: 0;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+button {
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 30px;
+  width: 150px;
+  background-color: transparent;
+  color: white;
+}
+
+button:hover {
+  background-color: white;
+  color: #25995b;
+  transition: 0.5s;
+}

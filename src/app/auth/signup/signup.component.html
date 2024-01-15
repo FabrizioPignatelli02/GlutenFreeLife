@@ -1,4 +1,8 @@
-<div>
+<div class="formMain">
+  <div>
+    <h2 class="text-white">Entra nel mondo del Gluten Free</h2>
+    <p class="text-white text-decoration-underline">Registrati gratuitamente</p>
+  </div>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div>
       <input
@@ -30,6 +34,6 @@
         formControlName="password"
       />
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit">Registrati</button>
   </form>
 </div>

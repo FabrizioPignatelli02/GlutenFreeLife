@@ -1,4 +1,10 @@
-<div>
+<div class="formMain">
+  <div>
+    <h2 class="text-white">Bentornato Gluten Free Lifer</h2>
+    <p class="text-white text-decoration-underline">
+      Accedi per accedere a tutti i contenuti
+    </p>
+  </div>
   <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
     <div>
       <input
@@ -20,6 +26,6 @@
         ngModel
       />
     </div>
-    <button type="submit" [disabled]="formLogin.invalid">Submit</button>
+    <button type="submit" [disabled]="formLogin.invalid">Accedi</button>
   </form>
 </div>

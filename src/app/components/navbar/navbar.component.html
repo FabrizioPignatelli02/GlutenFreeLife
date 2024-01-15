@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"
+    <a class="navbar-brand" [routerLink]="['']" routerLinkActive="active"
       ><img src="../../../assets/img/gflLogo.png" alt="Logo Gluten Free Life"
     /></a>
     <button
@@ -16,10 +16,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="utente">
+          <a class="nav-link" [routerLink]="['']" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
         <li class="nav-item" *ngIf="!utente">
           <a
             class="nav-link active"
-            [routerLink]="['/']"
+            [routerLink]="['/login']"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             >Login</a
@@ -33,20 +38,9 @@
             >Signup</a
           >
         </li>
-        <li class="nav-item" *ngIf="utente">
-          <a class="nav-link" [routerLink]="['home']" routerLinkActive="active"
-            >Home</a
-          >
-        </li>
+
         <h6 *ngIf="utente">Benvenuto {{ utente.user.nome }}</h6>
-        <button
-          type="button"
-          *ngIf="utente"
-          class="float-end"
-          (click)="logout()"
-        >
-          logout
-        </button>
+        <button type="button" *ngIf="utente" (click)="logout()">logout</button>
       </ul>
     </div>
   </div>

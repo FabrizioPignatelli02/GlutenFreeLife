@@ -27,7 +27,7 @@ export class AuthService {
         this.authSubj.next(data);
         this.utente = data;
         localStorage.setItem('user', JSON.stringify(data));
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }),
       catchError(this.errors)
     );
@@ -36,12 +36,12 @@ export class AuthService {
   restore() {
     const user = localStorage.getItem('user');
     if (!user) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       return;
     }
     const userData: AuthData = JSON.parse(user);
     if (this.jwtHelper.isTokenExpired(userData.accessToken)) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       return;
     }
     this.authSubj.next(userData);
@@ -50,7 +50,7 @@ export class AuthService {
   register(data: { nome: string; email: string; password: string }) {
     return this.http.post(`${this.userUrl}users`, data).pipe(
       tap(() => {
-        this.router.navigate(['/']), catchError(this.errors);
+        this.router.navigate(['/login']), catchError(this.errors);
       })
     );
   }
@@ -58,7 +58,7 @@ export class AuthService {
   logout() {
     this.authSubj.next(null);
     localStorage.removeItem('user');
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   private errors(err: any) {
