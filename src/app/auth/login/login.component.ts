@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +9,22 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-  constructor() {}
+  constructor(private authSrv: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  login(form: NgForm) {
+    try {
+      this.authSrv.login(form.value).subscribe((data) => {
+        console.log('Dati:', data);
+        localStorage.setItem('token', data.accessToken);
+      });
+      this.router.navigate(['/home']);
+    } catch (error: any) {
+      if (error) {
+        alert('Login Errato');
+        this.router.navigate(['/']);
+      }
+    }
+  }
 }

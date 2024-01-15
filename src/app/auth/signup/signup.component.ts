@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,7 +9,24 @@ import { FormGroup } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   registerForm!: FormGroup;
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private authSrv: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.registerForm = new FormGroup({
+      nome: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required]),
+    });
+  }
+
+  register() {
+    try {
+      this.authSrv.register(this.registerForm.value).subscribe();
+    } catch (error: any) {
+      if (error) {
+        this.router.navigate(['/signup']);
+      }
+    }
+  }
 }

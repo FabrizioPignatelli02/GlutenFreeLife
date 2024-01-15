@@ -27,6 +27,7 @@ export class AuthService {
         this.authSubj.next(data);
         this.utente = data;
         localStorage.setItem('user', JSON.stringify(data));
+        this.router.navigate(['/home']);
       })
       // catchError(this.errors)
     );
@@ -45,7 +46,11 @@ export class AuthService {
   }
 
   register(data: { nome: string; email: string; password: string }) {
-    return this.http.post(`${this.userUrl}register`, data);
+    return this.http.post(`${this.userUrl}users`, data).pipe(
+      tap(() => {
+        this.router.navigate(['/']);
+      })
+    );
   }
 
   logout() {

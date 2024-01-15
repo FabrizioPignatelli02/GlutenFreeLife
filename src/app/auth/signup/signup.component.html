@@ -1,4 +1,35 @@
-<form [formGroup]="registerForm">
-  <input type="text" />
-  <input type="text" />
-</form>
+<div>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div>
+      <input
+        type="text"
+        name="nome"
+        id="nome"
+        placeholder="Nome Completo"
+        required
+        formControlName="nome"
+      />
+    </div>
+    <div>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="email"
+        required
+        formControlName="email"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="password"
+        required
+        formControlName="password"
+      />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>

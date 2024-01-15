@@ -1,4 +1,25 @@
-<form [formGroup]="loginForm">
-  <input type="text" />
-  <input type="text" />
-</form>
+<div>
+  <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
+    <div>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="email"
+        required
+        ngModel
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="password"
+        required
+        ngModel
+      />
+    </div>
+    <button type="submit" [disabled]="formLogin.invalid">Submit</button>
+  </form>
+</div>

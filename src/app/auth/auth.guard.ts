@@ -29,9 +29,10 @@ export class AuthGuard implements CanActivate {
       map((utente) => {
         if (utente) {
           return true;
+        } else {
+          alert('Devi essere loggato');
+          return this.router.createUrlTree(['/']);
         }
-        alert('Devi essere loggato');
-        return this.router.createUrlTree(['/']);
       })
     );
   }
