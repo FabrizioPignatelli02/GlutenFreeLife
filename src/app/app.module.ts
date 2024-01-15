@@ -11,6 +11,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { AuthService } from './auth/auth.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AuthService } from './auth/auth.service';
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
