@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { AuthService } from './auth/auth.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
+import { RistorantiComponent } from './components/ristoranti/ristoranti.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SignupComponent,
     HomeComponent,
     FooterComponent,
+    ChisiamoComponent,
+    RistorantiComponent,
   ],
   imports: [
     BrowserModule,

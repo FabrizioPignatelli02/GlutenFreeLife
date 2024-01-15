@@ -4,6 +4,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
+import { RistorantiComponent } from './components/ristoranti/ristoranti.component';
+import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +16,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'ristoranti',
+    component: RistorantiComponent,
+  },
+  {
+    path: 'chisiamo',
+    component: ChisiamoComponent,
   },
 ];
 
