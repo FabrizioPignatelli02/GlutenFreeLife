@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
     HttpClientModule,
   ],
   providers: [
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

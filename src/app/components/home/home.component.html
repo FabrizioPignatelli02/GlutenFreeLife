@@ -1,1 +1,30 @@
-<p>home works!</p>
+<div *ngIf="!utente">
+  <div class="d-flex justify-content-evenly w-100 flex-wrap">
+    <div id="left" class="d-flex flex-column justify-content-center">
+      <h1>Gluten Free Life</h1>
+      <p>
+        Vivi al meglio la tua vita con Gluten Free Life, <br />
+        prenota e ordina dai tuoi ristoranti preferiti <br />
+        senza aver paura del glutine
+        <img
+          style="width: 40px"
+          src="../../../assets/img/glutenfreelogo.png"
+          alt=""
+        />
+      </p>
+      <a class="buttonHome" [routerLink]="['/signup']"
+        ><strong>ENTRA ORA</strong></a
+      >
+    </div>
+    <div
+      id="right"
+      style="
+        background-image: url(../../../assets/img/orderimage.png);
+        width: 600px;
+        height: 600px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      "
+    ></div>
+  </div>
+</div>
