@@ -18,13 +18,54 @@
     </div>
     <div
       id="right"
-      style="
-        background-image: url(../../../assets/img/orderimage.png);
-        width: 600px;
-        height: 600px;
-        background-repeat: no-repeat;
-        background-size: cover;
-      "
+      class="classImgTop"
+      style="background-image: url(../../../assets/img/orderimage.png)"
     ></div>
+  </div>
+  <div class="w-75 m-auto">
+    <hr class="m-5" />
+    <div class="d-flex flex-wrap justify-content-evenly align-items-center">
+      <div
+        class="classImgDiv"
+        style="background-image: url(../../../assets/img/store.png)"
+      ></div>
+      <div id="left" class="d-flex flex-column">
+        <p>
+          Su Gluten Free Life sono disponibili <br />
+          tutti i ristoranti, bar, ecc.. <br />
+          con prodotti senza glutine
+          <img
+            style="width: 40px"
+            src="../../../assets/img/glutenfreelogo.png"
+            alt=""
+          />
+        </p>
+        <a class="buttonHome" [routerLink]="['/ristoranti']"
+          ><strong>SCOPRI DI PIU'</strong></a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="w-75 m-auto">
+    <hr class="m-5" />
+    <div class="d-flex flex-wrap justify-content-evenly align-items-center">
+      <div id="left" class="d-flex flex-column">
+        <p>
+          Ci vuoi conoscere meglio? <br />
+          Visita la sezione <strong>"CHI SIAMO"</strong> <br />
+          e scopri il mondo GFL
+        </p>
+        <a class="buttonHome" [routerLink]="['/chisiamo']"
+          ><strong>SCOPRI DI PIU'</strong></a
+        >
+      </div>
+      <div
+        class="classImgDiv"
+        style="
+          background-image: url(../../../assets/img/gflLogo.png);
+          width: 300px;
+        "
+      ></div>
+    </div>
   </div>
 </div>
