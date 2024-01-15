@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { catchError, throwError } from 'rxjs';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   registerForm!: FormGroup;
+  erro!: AuthService;
 
   constructor(private authSrv: AuthService, private router: Router) {}
 
@@ -21,12 +23,29 @@ export class SignupComponent implements OnInit {
   }
 
   register() {
-    try {
-      this.authSrv.register(this.registerForm.value).subscribe();
-    } catch (error: any) {
-      if (error) {
-        this.router.navigate(['/signup']);
-      }
+    this.authSrv.register(this.registerForm.value).subscribe(),
+      catchError(this.errors);
+  }
+
+  private errors(err: any) {
+    // console.log(err);
+    // alert(err.error);
+    switch (err.error) {
+      case 'Email already exists':
+        return throwError('Email già registrata');
+        break;
+
+      case 'Email format is invalid':
+        return throwError('Formato mail non valido');
+        break;
+
+      case 'Cannot find user':
+        return throwError('Utente inesistente');
+        break;
+
+      default:
+        return throwError('Errore nella chiamata');
+        break;
     }
   }
 }

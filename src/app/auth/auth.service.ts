@@ -51,7 +51,8 @@ export class AuthService {
     return this.http.post(`${this.userUrl}users`, data).pipe(
       tap(() => {
         this.router.navigate(['/login']), catchError(this.errors);
-      })
+      }),
+      catchError(this.errors)
     );
   }
 
@@ -62,8 +63,22 @@ export class AuthService {
   }
 
   private errors(err: any) {
-    console.log(err);
-    alert('Email o password errata');
+    // console.log(err);
+    // alert(err.error);
+    const allert = document.getElementById('alert');
+    const p = document.getElementById('p-alert') as HTMLParagraphElement;
+    const button = document.getElementById('button-alert') as HTMLButtonElement;
+    button.innerText = '❌';
+    button.addEventListener('click', () => {
+      allert?.classList.add('d-none');
+      allert?.classList.remove('d-flex');
+    });
+    p.innerText = err.error;
+    allert?.appendChild(p);
+    allert?.appendChild(button);
+    allert?.classList.remove('d-none');
+    allert?.classList.add('d-flex');
+
     switch (err.error) {
       case 'Email already exists':
         return throwError('Email già registrata');

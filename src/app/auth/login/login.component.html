@@ -1,9 +1,11 @@
+<div id="alert" class="alert alert-danger d-none">
+  <p id="p-alert"></p>
+  <button id="button-alert"></button>
+</div>
 <div class="formMain">
   <div>
     <h2 class="text-white">Bentornato Gluten Free Lifer</h2>
-    <p class="text-white text-decoration-underline">
-      Accedi per accedere a tutti i contenuti
-    </p>
+    <p class="text-white">Accedi a tutti i tuoi contenuti</p>
   </div>
   <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
     <div>
@@ -28,7 +30,9 @@
     </div>
     <button type="submit" [disabled]="formLogin.invalid">Accedi</button>
   </form>
-  <a class="text-decoration-underline text-white" [routerLink]="['/signup']"
+  <a
+    class="text-decoration-underline text-white mt-4"
+    [routerLink]="['/signup']"
     >Se non hai un account, registrati</a
   >
 </div>

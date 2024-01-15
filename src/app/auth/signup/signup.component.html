@@ -1,7 +1,11 @@
+<div id="alert" class="alert alert-danger d-none">
+  <p id="p-alert"></p>
+  <button id="button-alert"></button>
+</div>
 <div class="formMain">
   <div>
     <h2 class="text-white">Entra nel mondo del Gluten Free</h2>
-    <p class="text-white text-decoration-underline">Registrati gratuitamente</p>
+    <p class="text-white m-0">Registrati gratuitamente</p>
   </div>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div>
@@ -36,7 +40,7 @@
     </div>
     <button type="submit">Registrati</button>
   </form>
-  <a class="text-decoration-underline text-white" [routerLink]="['/login']"
+  <a class="text-decoration-underline text-white mt-3" [routerLink]="['/login']"
     >Se ti sei già registrato, accedi</a
   >
 </div>
