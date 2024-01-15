@@ -19,11 +19,10 @@ export class LoginComponent implements OnInit {
         console.log('Dati:', data);
         localStorage.setItem('token', data.accessToken);
       });
-      this.router.navigate(['/']);
     } catch (error: any) {
       if (error) {
         alert('Login Errato');
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       }
     }
   }
