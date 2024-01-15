@@ -28,18 +28,20 @@ export class AuthService {
         this.utente = data;
         localStorage.setItem('user', JSON.stringify(data));
         this.router.navigate(['/home']);
-      })
-      // catchError(this.errors)
+      }),
+      catchError(this.errors)
     );
   }
 
   restore() {
     const user = localStorage.getItem('user');
     if (!user) {
+      this.router.navigate(['/']);
       return;
     }
     const userData: AuthData = JSON.parse(user);
     if (this.jwtHelper.isTokenExpired(userData.accessToken)) {
+      this.router.navigate(['/']);
       return;
     }
     this.authSubj.next(userData);
@@ -48,7 +50,7 @@ export class AuthService {
   register(data: { nome: string; email: string; password: string }) {
     return this.http.post(`${this.userUrl}users`, data).pipe(
       tap(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/']), catchError(this.errors);
       })
     );
   }
@@ -57,5 +59,27 @@ export class AuthService {
     this.authSubj.next(null);
     localStorage.removeItem('user');
     this.router.navigate(['/']);
+  }
+
+  private errors(err: any) {
+    console.log(err);
+    alert('Email o password errata');
+    switch (err.error) {
+      case 'Email already exists':
+        return throwError('Email già registrata');
+        break;
+
+      case 'Email format is invalid':
+        return throwError('Formato mail non valido');
+        break;
+
+      case 'Cannot find user':
+        return throwError('Utente inesistente');
+        break;
+
+      default:
+        return throwError('Errore nella chiamata');
+        break;
+    }
   }
 }
