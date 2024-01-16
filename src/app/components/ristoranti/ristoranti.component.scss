@@ -1,0 +1,28 @@
+.blured {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  background-image: url(../../../assets/img/table.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(6px);
+}
+
+h1 {
+  color: white;
+  font-size: 4rem;
+  text-shadow: 0.1em 0.05em 0.05em black;
+  text-align: center;
+  margin-top: 150px;
+  margin-inline: auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #25995b9c;
+  width: 950px;
+  padding: 10px;
+}
+
+.allRestaurantDiv {
+  margin-top: 250px;
+}
