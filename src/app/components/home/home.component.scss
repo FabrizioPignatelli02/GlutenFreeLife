@@ -20,3 +20,20 @@
   background-size: contain;
   background-position: center;
 }
+
+.category {
+  background-color: transparent;
+  width: 450px;
+  text-align: center;
+  height: 450px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.category:hover {
+  background-color: #25995b;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
