@@ -69,21 +69,31 @@
     </div>
   </div>
 </div>
-<div *ngIf="utente">
+<div *ngIf="utente && !boolMangiaAlRistorante && !boolOrdina">
   <div
     class="w-75 m-auto mt-5 d-flex flex-wrap justify-content-evenly align-items-center"
   >
     <a
+      (click)="mangiaAlRistorante()"
       class="category d-flex justify-content-center align-items-center"
-      href=""
+      [routerLink]="['/']"
     >
       <h2>MANGIA AL RISTORANTE</h2>
     </a>
     <a
+      (click)="ordina()"
       class="category d-flex justify-content-center align-items-center"
-      href=""
+      [routerLink]="['/']"
     >
       <h2>ORDINA E RITIRA</h2>
     </a>
   </div>
+</div>
+<div *ngIf="boolMangiaAlRistorante">
+  <a (click)="tornaIndietro()">Torna indietro</a>
+  <h1>Mangia al ristorante</h1>
+</div>
+<div *ngIf="boolOrdina">
+  <a (click)="tornaIndietro()">Torna indietro</a>
+  <h1>Ordina</h1>
 </div>
