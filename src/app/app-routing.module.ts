@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RistorantiComponent } from './components/ristoranti/ristoranti.component';
 import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
+import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'chisiamo',
     component: ChisiamoComponent,
+  },
+  {
+    path: 'lavoraconnoi',
+    component: LavoraconnoiComponent,
   },
 ];
 
