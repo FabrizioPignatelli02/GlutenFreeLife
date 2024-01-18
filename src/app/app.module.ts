@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
 import { RistorantiComponent } from './components/ristoranti/ristoranti.component';
 import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
+import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/dettaglio-ristorante.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.co
     ChisiamoComponent,
     RistorantiComponent,
     LavoraconnoiComponent,
+    DettaglioRistoranteComponent,
   ],
   imports: [
     BrowserModule,

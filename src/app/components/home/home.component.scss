@@ -37,3 +37,21 @@
   color: white;
   transition: 0.5s ease-in-out;
 }
+
+.new-card {
+  height: 285px;
+  background-color: red;
+  margin-inline: auto;
+  margin-top: 50px;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: white;
+}
+
+.new-card img {
+  height: 285px;
+  width: 500px;
+  object-fit: cover;
+  object-position: center;
+}

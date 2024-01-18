@@ -7,6 +7,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { RistorantiComponent } from './components/ristoranti/ristoranti.component';
 import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
 import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
+import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/dettaglio-ristorante.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'lavoraconnoi',
     component: LavoraconnoiComponent,
+  },
+  {
+    path: 'dettaglio/:id',
+    component: DettaglioRistoranteComponent,
   },
 ];
 

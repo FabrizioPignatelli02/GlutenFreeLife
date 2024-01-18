@@ -81,7 +81,7 @@
       <h2>MANGIA AL RISTORANTE</h2>
     </a>
     <a
-      (click)="ordina()"
+      (click)="ordinaAlRistorante()"
       class="category d-flex justify-content-center align-items-center"
       [routerLink]="['/']"
     >
@@ -89,11 +89,59 @@
     </a>
   </div>
 </div>
-<div *ngIf="boolMangiaAlRistorante">
+<div class="w-75 m-auto" *ngIf="boolMangiaAlRistorante">
   <a (click)="tornaIndietro()">Torna indietro</a>
   <h1>Mangia al ristorante</h1>
+  <div class="w-100 new-card" *ngFor="let ristorante of allRistoranti">
+    <div>
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="{{ ristorante.imglogo }}" class="rounded-start" alt="..." />
+        </div>
+        <div
+          class="col-md-6 d-flex align-items-start justify-content-center text-start flex-column flex-wrap"
+        >
+          <div class="d-flex flex-column gap-1">
+            <h5 class="card-title">{{ ristorante.name }}</h5>
+            <p class="card-text">
+              <small class="text-body-secondary">{{
+                ristorante.category
+              }}</small>
+            </p>
+            <a (click)="dettaglioRistorante(ristorante.id)" class="buttonHome"
+              ><strong><small>PRENOTA</small></strong></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div *ngIf="boolOrdina">
+<div class="w-75 m-auto" *ngIf="boolOrdina">
   <a (click)="tornaIndietro()">Torna indietro</a>
   <h1>Ordina</h1>
+  <div class="w-100 new-card" *ngFor="let ristorante of allRistoranti">
+    <div>
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="{{ ristorante.imglogo }}" class="rounded-start" alt="..." />
+        </div>
+        <div
+          class="col-md-6 d-flex align-items-start justify-content-center text-start flex-column flex-wrap"
+        >
+          <div class="d-flex flex-column gap-1">
+            <h5 class="card-title">{{ ristorante.name }}</h5>
+            <p class="card-text">
+              <small class="text-body-secondary">{{
+                ristorante.category
+              }}</small>
+            </p>
+            <a (click)="dettaglioRistorante(ristorante.id)" class="buttonHome"
+              ><strong><small>PRENOTA</small></strong></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

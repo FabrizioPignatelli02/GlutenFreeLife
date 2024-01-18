@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthData } from 'src/app/auth/auth-data';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  allRistoranti!: any;
   utente!: AuthData | null;
-  boolMangiaAlRistorante!: boolean;
-  boolOrdina!: boolean;
+  boolMangiaAlRistorante!: any;
+  boolOrdina!: any;
   constructor(private authSrv: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.boolMangiaAlRistorante = false;
-    this.boolOrdina = false;
+    const mangia = sessionStorage.getItem('mangia');
+    const ordina = sessionStorage.getItem('ordina');
+    if (mangia === 'true') {
+      this.mangiaAlRistorante();
+    }
+    if (ordina === 'true') {
+      this.ordinaAlRistorante();
+    }
     this.authSrv.restore();
     this.authSrv.user$.subscribe((user) => {
       this.utente = user;
@@ -24,19 +32,40 @@ export class HomeComponent implements OnInit {
     const userToken = localStorage.getItem('user');
     if (userToken) {
     }
+    this.allRestaurant();
   }
 
   mangiaAlRistorante() {
-    this.boolMangiaAlRistorante = true;
+    sessionStorage.setItem('mangia', 'true');
+    sessionStorage.setItem('ordina', 'false');
+    this.boolMangiaAlRistorante = sessionStorage.getItem('mangia');
   }
 
-  ordina() {
-    this.boolOrdina = true;
+  ordinaAlRistorante() {
+    sessionStorage.setItem('ordina', 'true');
+    sessionStorage.setItem('mangia', 'false');
+    this.boolOrdina = sessionStorage.getItem('ordina');
   }
 
   tornaIndietro() {
-    this.boolMangiaAlRistorante = false;
-    this.boolOrdina = false;
+    this.boolMangiaAlRistorante = '';
+    this.boolOrdina = '';
+    sessionStorage.setItem('mangia', 'false');
+    sessionStorage.setItem('ordina', 'false');
     this.router.navigate(['/']);
+  }
+
+  allRestaurant() {
+    const apiUrl = environment.restaurantApi;
+    fetch(apiUrl)
+      .then((resp) => resp.json())
+      .then((ristoranti) => {
+        console.log(ristoranti);
+        this.allRistoranti = ristoranti;
+      });
+  }
+
+  dettaglioRistorante(id: number) {
+    this.router.navigate([`/dettaglio/` + id]);
   }
 }
