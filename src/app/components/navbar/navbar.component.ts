@@ -19,5 +19,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authSrv.logout();
+    sessionStorage.setItem('ordina', 'false');
+    sessionStorage.setItem('mangia', 'false');
   }
 }
