@@ -14,6 +14,10 @@ export class DettaglioRistoranteComponent implements OnInit {
   ristorante!: any;
   ApiId!: any;
   Menu!: any;
+  itemCarrello: number = 0;
+  item!: any;
+  carrello: any[] = [];
+  listCarrelloArray!: any;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -27,6 +31,7 @@ export class DettaglioRistoranteComponent implements OnInit {
     this.ordina = sessionStorage.getItem('ordina');
     this.mangia = sessionStorage.getItem('mangia');
     this.caricaMenu();
+    this.caricaArray();
   }
 
   caricaMenu() {
@@ -38,5 +43,33 @@ export class DettaglioRistoranteComponent implements OnInit {
         console.log('Menu:', menu);
         this.Menu = menu;
       });
+  }
+
+  addItemCarrello(name: string, price: number) {
+    this.itemCarrello++;
+    sessionStorage.setItem('carrello', this.itemCarrello.toString());
+    this.item = sessionStorage.getItem('carrello');
+    this.carrello.push({ name, price });
+    sessionStorage.setItem('car', JSON.stringify(this.carrello));
+  }
+
+  removeItemCarrello(name: string, price: number, i: number) {
+    this.itemCarrello--;
+    sessionStorage.setItem('carrello', this.itemCarrello.toString());
+    this.item = sessionStorage.getItem('carrello');
+    this.carrello.splice(i, 1);
+    sessionStorage.setItem('car', JSON.stringify(this.carrello));
+  }
+
+  caricaArray() {
+    this.item = sessionStorage.getItem('carrello');
+    this.listCarrelloArray = sessionStorage.getItem('car');
+    this.carrello = JSON.parse(this.listCarrelloArray);
+  }
+
+  reset() {
+    sessionStorage.setItem('car', '');
+    sessionStorage.setItem('carrello', '');
+    this.carrello = [];
   }
 }

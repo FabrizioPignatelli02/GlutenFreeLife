@@ -1,6 +1,22 @@
 <div class="w-75" style="margin-inline: auto; margin-bottom: 77px">
-  <a [routerLink]="['/']">Torna Indietro</a>
-  <h1>{{ ristorante.name }}</h1>
+  <a (click)="reset()" [routerLink]="['/']">Torna Indietro</a>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>{{ ristorante.name }}</h1>
+    <a class="aCarrello" *ngIf="ordina == 'true'">
+      Carrello
+      <p id="itemCarrello" class="itemCarrello">{{ item }}</p>
+    </a>
+  </div>
+  <div
+    id="carrello"
+    *ngFor="let listCarrello of carrello; index as i"
+    class="d-flex align-items-center gap-3"
+  >
+    <h2>{{ listCarrello.name }} {{ listCarrello.price }}€</h2>
+    <a (click)="removeItemCarrello(listCarrello.name, listCarrello.price, i)"
+      >❌</a
+    >
+  </div>
   <div
     class="d-flex flex-wrap justify-content-start gap-5 align-items-center mt-5"
     *ngIf="ordina == 'true'"
@@ -14,9 +30,11 @@
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
+          <h6 class="card-title">{{ item.name }}</h6>
           <p class="card-text">{{ item.price }}€</p>
-          <a class="buttonHome"><strong>ORDINA</strong></a>
+          <a class="buttonHome" (click)="addItemCarrello(item.name, item.price)"
+            ><strong>ORDINA</strong></a
+          >
         </div>
       </div>
     </div>
