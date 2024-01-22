@@ -42,6 +42,8 @@ export class AuthService {
     const userData: AuthData = JSON.parse(user);
     if (this.jwtHelper.isTokenExpired(userData.accessToken)) {
       this.router.navigate(['/']);
+      sessionStorage.setItem('mangia', 'false');
+      sessionStorage.setItem('ordina', 'false');
       return;
     }
     this.authSubj.next(userData);
