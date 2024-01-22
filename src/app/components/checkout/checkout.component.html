@@ -1,0 +1,15 @@
+<div class="w-75" style="margin-inline: auto">
+  <a class="text-decoration-none text-dark" href="javascript:history.back()"
+    >Torna Indietro</a
+  >
+  <div
+    id="carrello"
+    *ngFor="let listCarrello of carrello; index as i"
+    class="d-flex align-items-center gap-3"
+  >
+    <h2>{{ listCarrello.name }} {{ listCarrello.price }}€</h2>
+    <a (click)="removeItemCarrello(listCarrello.name, listCarrello.price, i)"
+      >❌</a
+    >
+  </div>
+</div>

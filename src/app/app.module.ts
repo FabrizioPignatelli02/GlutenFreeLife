@@ -16,6 +16,7 @@ import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
 import { RistorantiComponent } from './components/ristoranti/ristoranti.component';
 import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
 import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/dettaglio-ristorante.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/
     RistorantiComponent,
     LavoraconnoiComponent,
     DettaglioRistoranteComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

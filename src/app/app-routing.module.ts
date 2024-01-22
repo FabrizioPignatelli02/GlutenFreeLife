@@ -8,6 +8,7 @@ import { RistorantiComponent } from './components/ristoranti/ristoranti.componen
 import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
 import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
 import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/dettaglio-ristorante.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'dettaglio/:id',
     component: DettaglioRistoranteComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
 ];
 
