@@ -14,7 +14,7 @@ export class DettaglioRistoranteComponent implements OnInit {
   ristorante!: any;
   ApiId!: any;
   Menu!: any;
-  itemCarrello: number = 0;
+  itemCarrello!: number;
   item!: any;
   carrello: any[] = [];
   listCarrelloArray!: any;
@@ -32,6 +32,10 @@ export class DettaglioRistoranteComponent implements OnInit {
     this.mangia = sessionStorage.getItem('mangia');
     this.caricaMenu();
     this.caricaArray();
+    console.log('itemcarrello:', this.itemCarrello);
+    if (this.itemCarrello === undefined) {
+      this.itemCarrello = this.item;
+    }
   }
 
   caricaMenu() {
@@ -46,11 +50,17 @@ export class DettaglioRistoranteComponent implements OnInit {
   }
 
   addItemCarrello(name: string, price: number) {
+    const iCarrello = sessionStorage.getItem('carrello');
+    if (iCarrello === '') {
+      this.itemCarrello = 0;
+      sessionStorage.setItem('carrello', this.itemCarrello.toString());
+    }
     this.itemCarrello++;
     sessionStorage.setItem('carrello', this.itemCarrello.toString());
     this.item = sessionStorage.getItem('carrello');
     this.carrello.push({ name, price });
     sessionStorage.setItem('car', JSON.stringify(this.carrello));
+    console.log('itemcarrelloPUSH:', this.itemCarrello);
   }
 
   removeItemCarrello(name: string, price: number, i: number) {
