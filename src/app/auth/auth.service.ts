@@ -58,7 +58,12 @@ export class AuthService {
     );
   }
 
-  registerPost(data: { nome: string; array: any; idUser: number }) {
+  registerPost(data: {
+    nome: string;
+    array: any;
+    idUser: number;
+    time: string;
+  }) {
     return this.http.post(`${this.userUrl}ordini`, data).pipe(
       tap(() => {}),
       catchError(this.errors)
@@ -72,8 +77,6 @@ export class AuthService {
   }
 
   private errors(err: any) {
-    // console.log(err);
-    // alert(err.error);
     const allert = document.getElementById('alert');
     const p = document.getElementById('p-alert') as HTMLParagraphElement;
     const button = document.getElementById('button-alert') as HTMLButtonElement;

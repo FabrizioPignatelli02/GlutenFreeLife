@@ -12,12 +12,12 @@
       "nome": "Zen Sushi Lounge",
       "array": [
         {
-          "name": "Hosomaki Salmone",
+          "name": "Misto Nigiri",
           "price": 8
         },
         {
-          "name": "Sashimi Tonno",
-          "price": 5
+          "name": "Misto Nigiri",
+          "price": 8
         },
         {
           "name": "Misto Nigiri",
@@ -25,21 +25,23 @@
         }
       ],
       "idUser": 1,
+      "time": "20:44",
       "id": 1
     },
     {
-      "nome": "Gusto Italiano",
+      "nome": "La Dolce Pizza",
       "array": [
         {
-          "name": "Carbonara",
-          "price": 12
+          "name": "Margherita",
+          "price": 6
         },
         {
-          "name": "Carbonara",
-          "price": 12
+          "name": "Margherita",
+          "price": 6
         }
       ],
       "idUser": 1,
+      "time": "21:45",
       "id": 2
     }
   ]

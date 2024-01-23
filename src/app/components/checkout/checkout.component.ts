@@ -48,7 +48,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   makeOrder(nome: string, array: any, idUser: number) {
-    this.authSrv.registerPost({ nome, array, idUser }).subscribe();
+    const timeControl = document.getElementById('time') as HTMLInputElement;
+    const time = timeControl.value;
+    this.authSrv.registerPost({ nome, array, idUser, time }).subscribe();
     this.ordineConfermato = true;
     this.carrello = [];
     sessionStorage.setItem('ristorante', '');
