@@ -9,6 +9,7 @@ import { ChisiamoComponent } from './components/chisiamo/chisiamo.component';
 import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
 import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/dettaglio-ristorante.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent,
   },
 ];
 

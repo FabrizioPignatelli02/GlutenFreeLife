@@ -17,6 +17,7 @@ import { RistorantiComponent } from './components/ristoranti/ristoranti.componen
 import { LavoraconnoiComponent } from './components/lavoraconnoi/lavoraconnoi.component';
 import { DettaglioRistoranteComponent } from './components/dettaglio-ristorante/dettaglio-ristorante.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     LavoraconnoiComponent,
     DettaglioRistoranteComponent,
     CheckoutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

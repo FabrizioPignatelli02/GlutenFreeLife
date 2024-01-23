@@ -54,6 +54,12 @@
     </ul>
     <div class="d-flex align-items-center gap-2">
       <h6 class="m-0" *ngIf="utente">Benvenuto/a {{ utente.user.nome }}</h6>
+      <a *ngIf="utente" (click)="profilo(utente.user.id)"
+        ><i
+          class="bi bi-person-circle"
+          style="width: 100px; cursor: pointer"
+        ></i
+      ></a>
       <button
         type="button"
         class="btn-signup"

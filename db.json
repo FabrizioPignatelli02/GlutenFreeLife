@@ -5,6 +5,12 @@
       "password": "$2a$10$2hPAMlH8Ckx6rTPnAw5IweyZkbp8v/mXjADobr5i9Fwxbm9vz1Yd.",
       "nome": "Fabrizio",
       "id": 1
+    },
+    {
+      "email": "chiaralombardi20245@gmail.com",
+      "password": "$2a$10$Cpy2KR2XEqFMkx1FlyDWo.y9Lxjhgua0XyfPYOG.ooBnDxTQD6ATa",
+      "nome": "Chiara Lombardi",
+      "id": 2
     }
   ],
   "ordini": [
@@ -43,6 +49,38 @@
       "idUser": 1,
       "time": "21:45",
       "id": 2
+    },
+    {
+      "nome": "Vintage Vino Bar",
+      "array": [
+        {
+          "name": "Birra",
+          "price": 6
+        },
+        {
+          "name": "Aperol Spritz",
+          "price": 7
+        }
+      ],
+      "idUser": 2,
+      "time": "20:45",
+      "id": 3
+    },
+    {
+      "nome": "Delizie del Mare",
+      "array": [
+        {
+          "name": "Hamburger",
+          "price": 10
+        },
+        {
+          "name": "Gelato Pistacchio",
+          "price": 4
+        }
+      ],
+      "idUser": 2,
+      "time": "19:45",
+      "id": 4
     }
   ]
 }
