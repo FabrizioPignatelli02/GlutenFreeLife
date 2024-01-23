@@ -1,21 +1,47 @@
-<div class="w-75" style="margin-inline: auto">
+<div
+  class="w-75"
+  style="margin-inline: auto"
+  *ngIf="ordineConfermato === false"
+>
   <a class="text-decoration-none text-dark" href="javascript:history.back()"
     >Torna Indietro</a
   >
+  <div
+    class="w-100 mt-5 d-flex align-items-center flex-nowrap justify-content-between"
+  >
+    <h2>A che ora vuoi ritirare il tuo ordine</h2>
+    <input type="time" />
+  </div>
   <div class="mt-5 divCarrello">
     <div
       id="carrello"
       *ngFor="let listCarrello of carrello; index as i"
       class="d-flex align-items-center gap-3 justify-content-between"
     >
-      <h2>{{ listCarrello.name }} {{ listCarrello.price }}€</h2>
+      <h5>{{ listCarrello.name }} {{ listCarrello.price }}€</h5>
       <a (click)="removeItemCarrello(listCarrello.name, listCarrello.price, i)"
         >❌</a
       >
     </div>
-    <h3 class="d-flex align-items-center justify-content-end">
+    <h3 class="d-flex align-items-center justify-content-end mt-5">
       Totale da pagare: {{ totalPay() }}€
     </h3>
   </div>
-  <div></div>
+  <div *ngIf="utente" class="mt-5 text-center">
+    <a
+      (click)="makeOrder(ristorante.name, carrello, utente.user.id)"
+      class="buttonHome"
+      >CONFERMA ORDINE</a
+    >
+  </div>
+  <div class="w-100 mt-5 text-center">
+    <h2>Presso: {{ ristorante.name }}</h2>
+    <p>{{ ristorante.category }}</p>
+    <img class="imgRist" src="{{ ristorante.imglogo }}" alt="" />
+  </div>
+</div>
+<div class="w-75 m-auto text-center" *ngIf="ordineConfermato === true">
+  <h1>Ordine confermato presso {{ ristorante.name }}</h1>
+  <h3>Preparati a riceverlo!</h3>
+  <a class="buttonHome" [routerLink]="['/']">TORNA ALLA HOME</a>
 </div>

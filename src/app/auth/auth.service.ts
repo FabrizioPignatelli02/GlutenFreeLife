@@ -58,6 +58,13 @@ export class AuthService {
     );
   }
 
+  registerPost(data: { nome: string; array: any; idUser: number }) {
+    return this.http.post(`${this.userUrl}ordini`, data).pipe(
+      tap(() => {}),
+      catchError(this.errors)
+    );
+  }
+
   logout() {
     this.authSubj.next(null);
     localStorage.removeItem('user');

@@ -27,6 +27,7 @@ export class DettaglioRistoranteComponent implements OnInit {
       .then((resp) => resp.json())
       .then((ristoranti) => {
         this.ristorante = ristoranti;
+        sessionStorage.setItem('ristorante', JSON.stringify(this.ristorante));
       });
     this.ordina = sessionStorage.getItem('ordina');
     this.mangia = sessionStorage.getItem('mangia');
@@ -80,6 +81,7 @@ export class DettaglioRistoranteComponent implements OnInit {
   reset() {
     sessionStorage.setItem('car', '');
     sessionStorage.setItem('carrello', '');
+    sessionStorage.setItem('ristorante', '');
     this.carrello = [];
   }
 }

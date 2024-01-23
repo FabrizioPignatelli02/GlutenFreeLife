@@ -3,6 +3,7 @@ import { AuthData } from 'src/app/auth/auth-data';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   utente!: AuthData | null;
   boolMangiaAlRistorante!: any;
   boolOrdina!: any;
+  totalOrder!: any[];
   constructor(private authSrv: AuthService, private router: Router) {}
 
   ngOnInit(): void {

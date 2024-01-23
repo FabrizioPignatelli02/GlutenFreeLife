@@ -6,5 +6,41 @@
       "nome": "Fabrizio",
       "id": 1
     }
+  ],
+  "ordini": [
+    {
+      "nome": "Zen Sushi Lounge",
+      "array": [
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Sashimi Tonno",
+          "price": 5
+        },
+        {
+          "name": "Misto Nigiri",
+          "price": 8
+        }
+      ],
+      "idUser": 1,
+      "id": 1
+    },
+    {
+      "nome": "Gusto Italiano",
+      "array": [
+        {
+          "name": "Carbonara",
+          "price": 12
+        },
+        {
+          "name": "Carbonara",
+          "price": 12
+        }
+      ],
+      "idUser": 1,
+      "id": 2
+    }
   ]
 }

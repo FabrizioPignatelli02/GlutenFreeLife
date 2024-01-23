@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
+import { AuthData } from 'src/app/auth/auth-data';
 
 @Component({
   selector: 'app-checkout',
@@ -9,13 +11,24 @@ export class CheckoutComponent implements OnInit {
   carrello: any[] = [];
   listCarrelloArray!: any;
   totalPayment: number = 0;
+  rist!: any;
+  ristorante!: any;
+  utente!: AuthData | null;
+  ordineConfermato: boolean = false;
+
   itemCarrello: any = sessionStorage.getItem('carrello');
 
-  constructor() {}
+  constructor(private authSrv: AuthService) {}
 
   ngOnInit(): void {
+    this.authSrv.user$.subscribe((user) => {
+      this.utente = user;
+    });
     this.listCarrelloArray = sessionStorage.getItem('car');
     this.carrello = JSON.parse(this.listCarrelloArray);
+    this.rist = sessionStorage.getItem('ristorante');
+    this.ristorante = JSON.parse(this.rist);
+    console.log('Ristorante:', this.ristorante);
     console.log('carrello:', this.carrello);
   }
 
@@ -32,5 +45,15 @@ export class CheckoutComponent implements OnInit {
       this.totalPayment += this.carrello[i].price;
     }
     return this.totalPayment;
+  }
+
+  makeOrder(nome: string, array: any, idUser: number) {
+    this.authSrv.registerPost({ nome, array, idUser }).subscribe();
+    this.ordineConfermato = true;
+    this.carrello = [];
+    sessionStorage.setItem('ristorante', '');
+    sessionStorage.setItem('car', '');
+    sessionStorage.setItem('carrello', '');
+    sessionStorage.setItem('ordina', 'false');
   }
 }
