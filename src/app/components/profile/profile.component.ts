@@ -13,7 +13,9 @@ export class ProfileComponent implements OnInit {
   id!: number;
   apiUrl!: string;
   ordiniAll!: any;
+  prenotazioniAll!: any;
   utente!: AuthData | null;
+  data!: Date;
   constructor(private route: ActivatedRoute, private authSrv: AuthService) {}
 
   ngOnInit(): void {
@@ -27,7 +29,12 @@ export class ProfileComponent implements OnInit {
       .then((resp) => resp.json())
       .then((ordini) => {
         this.ordiniAll = ordini;
-        console.log('Ordini', this.ordiniAll);
+      });
+    this.apiUrl = environment.userUrl + 'prenotazioni';
+    fetch(this.apiUrl)
+      .then((resp) => resp.json())
+      .then((prenotazioni) => {
+        this.prenotazioniAll = prenotazioni;
       });
   }
 }

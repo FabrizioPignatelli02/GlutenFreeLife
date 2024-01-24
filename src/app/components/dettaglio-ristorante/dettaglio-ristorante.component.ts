@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/auth/auth.service';
+import { catchError, throwError } from 'rxjs';
+import { AuthData } from 'src/app/auth/auth-data';
+import { Ristorante } from 'src/app/interface/ristorante';
 
 @Component({
   selector: 'app-dettaglio-ristorante',
@@ -8,27 +13,46 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dettaglio-ristorante.component.scss'],
 })
 export class DettaglioRistoranteComponent implements OnInit {
+  utente!: AuthData | null;
+  formPrenotazione!: FormGroup;
   id!: number;
   ordina!: any;
   mangia!: any;
-  ristorante!: any;
+  ristorante!: Ristorante;
   ApiId!: any;
   Menu!: any;
   itemCarrello!: number;
   item!: any;
   carrello: any[] = [];
   listCarrelloArray!: any;
-  constructor(private route: ActivatedRoute) {}
+  dataDiOggi!: any;
+  constructor(private route: ActivatedRoute, private authSrv: AuthService) {}
 
   ngOnInit(): void {
+    this.dataDiOggi = new Date().toISOString().slice(0, 10);
+    this.authSrv.restore();
+    this.authSrv.user$.subscribe((user) => {
+      this.utente = user;
+    });
+
     this.id = +this.route.snapshot.paramMap.get('id')!;
     const apiUrl = environment.restaurantApi;
     fetch(apiUrl + '/' + this.id)
       .then((resp) => resp.json())
       .then((ristoranti) => {
         this.ristorante = ristoranti;
+        (this.formPrenotazione = new FormGroup({
+          data: new FormControl(null, [Validators.required]),
+          ora: new FormControl(null, [Validators.required]),
+          ospiti: new FormControl(null, [Validators.required]),
+          nome: new FormControl(this.utente?.user.nome),
+          rist: new FormControl(this.ristorante?.name),
+          idUser: new FormControl(this.utente?.user.id),
+        })),
+          catchError(this.errors);
         sessionStorage.setItem('ristorante', JSON.stringify(this.ristorante));
       });
+
     this.ordina = sessionStorage.getItem('ordina');
     this.mangia = sessionStorage.getItem('mangia');
     this.caricaMenu();
@@ -78,10 +102,25 @@ export class DettaglioRistoranteComponent implements OnInit {
     this.carrello = JSON.parse(this.listCarrelloArray);
   }
 
+  prenotazione() {
+    this.authSrv.registerPrenotazioni(this.formPrenotazione.value).subscribe(),
+      catchError(this.errors);
+  }
+
   reset() {
     sessionStorage.setItem('car', '');
     sessionStorage.setItem('carrello', '');
     sessionStorage.setItem('ristorante', '');
     this.carrello = [];
+  }
+
+  private errors(err: any) {
+    console.log(err);
+    alert(err.error);
+    switch (err.error) {
+      default:
+        return throwError('Errore nella chiamata');
+        break;
+    }
   }
 }

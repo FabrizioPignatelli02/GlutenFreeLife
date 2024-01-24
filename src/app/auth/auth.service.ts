@@ -70,6 +70,23 @@ export class AuthService {
     );
   }
 
+  registerPrenotazioni(data: {
+    data: string;
+    ora: string;
+    ospiti: string;
+    nome: string;
+    rist: string;
+    idUser: number;
+    id: number;
+  }) {
+    return this.http.post(`${this.userUrl}prenotazioni`, data).pipe(
+      tap(() => {
+        catchError(this.errors);
+      }),
+      catchError(this.errors)
+    );
+  }
+
   logout() {
     this.authSubj.next(null);
     localStorage.removeItem('user');

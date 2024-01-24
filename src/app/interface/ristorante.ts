@@ -1,6 +1,6 @@
 export interface Ristorante {
   name: string;
-  imglog: string;
+  imglogo: string;
   imgthumbnails: string;
   category: string;
   id: number;

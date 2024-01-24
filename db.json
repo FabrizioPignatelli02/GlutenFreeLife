@@ -82,5 +82,16 @@
       "time": "19:45",
       "id": 4
     }
+  ],
+  "prenotazioni": [
+    {
+      "data": "2024-02-03",
+      "ora": "12:30",
+      "ospiti": 2,
+      "nome": "Fabrizio",
+      "rist": "Roll & Relax",
+      "idUser": 1,
+      "id": 1
+    }
   ]
 }
