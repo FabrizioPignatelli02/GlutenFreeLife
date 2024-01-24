@@ -15,12 +15,14 @@ export class CheckoutComponent implements OnInit {
   ristorante!: any;
   utente!: AuthData | null;
   ordineConfermato: boolean = false;
+  dataMin!: string;
 
   itemCarrello: any = sessionStorage.getItem('carrello');
 
   constructor(private authSrv: AuthService) {}
 
   ngOnInit(): void {
+    this.dataMin = new Date().toISOString().slice(0, 10);
     this.authSrv.user$.subscribe((user) => {
       this.utente = user;
     });
@@ -50,7 +52,9 @@ export class CheckoutComponent implements OnInit {
   makeOrder(nome: string, array: any, idUser: number) {
     const timeControl = document.getElementById('time') as HTMLInputElement;
     const time = timeControl.value;
-    this.authSrv.registerPost({ nome, array, idUser, time }).subscribe();
+    const dateControl = document.getElementById('date') as HTMLInputElement;
+    const date = dateControl.value;
+    this.authSrv.registerPost({ nome, array, idUser, time, date }).subscribe();
     this.ordineConfermato = true;
     this.carrello = [];
     sessionStorage.setItem('ristorante', '');

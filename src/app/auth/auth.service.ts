@@ -63,6 +63,7 @@ export class AuthService {
     array: any;
     idUser: number;
     time: string;
+    date: string;
   }) {
     return this.http.post(`${this.userUrl}ordini`, data).pipe(
       tap(() => {}),

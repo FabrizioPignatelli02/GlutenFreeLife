@@ -22,65 +22,34 @@
           "price": 8
         },
         {
-          "name": "Misto Nigiri",
+          "name": "Sashimi Tonno",
+          "price": 5
+        },
+        {
+          "name": "Hosomaki Salmone",
           "price": 8
+        },
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Sashimi Tonno",
+          "price": 5
         },
         {
           "name": "Misto Nigiri",
           "price": 8
+        },
+        {
+          "name": "Sashimi Tonno",
+          "price": 5
         }
       ],
       "idUser": 1,
-      "time": "20:44",
+      "time": "20:30",
+      "date": "2024-01-24",
       "id": 1
-    },
-    {
-      "nome": "La Dolce Pizza",
-      "array": [
-        {
-          "name": "Margherita",
-          "price": 6
-        },
-        {
-          "name": "Margherita",
-          "price": 6
-        }
-      ],
-      "idUser": 1,
-      "time": "21:45",
-      "id": 2
-    },
-    {
-      "nome": "Vintage Vino Bar",
-      "array": [
-        {
-          "name": "Birra",
-          "price": 6
-        },
-        {
-          "name": "Aperol Spritz",
-          "price": 7
-        }
-      ],
-      "idUser": 2,
-      "time": "20:45",
-      "id": 3
-    },
-    {
-      "nome": "Delizie del Mare",
-      "array": [
-        {
-          "name": "Hamburger",
-          "price": 10
-        },
-        {
-          "name": "Gelato Pistacchio",
-          "price": 4
-        }
-      ],
-      "idUser": 2,
-      "time": "19:45",
-      "id": 4
     }
   ],
   "prenotazioni": [
