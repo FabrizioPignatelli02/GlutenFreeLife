@@ -34,9 +34,9 @@
       </div>
     </div>
   </div>
-  <div class="w-100">
+  <div *ngIf="mangia === 'true'" class="w-100">
     <img class="imgRistorante" src="{{ ristorante.imglogo }}" alt="" />
-    <div *ngIf="mangia === 'true'">
+    <div>
       <h2 class="mt-3">Prenota al nostro ristorante</h2>
 
       <div>

@@ -10,7 +10,58 @@
       "id": 1
     }
   ],
-  "ordini": [],
-  "prenotazioni": [],
-  "recensioni": []
+  "ordini": [
+    {
+      "nome": "Zen Sushi Lounge",
+      "array": [
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Sashimi Tonno",
+          "price": 5
+        },
+        {
+          "name": "Misto Nigiri",
+          "price": 8
+        },
+        {
+          "name": "Hosomaki Fritti",
+          "price": 12
+        }
+      ],
+      "idUser": 1,
+      "time": "13:00",
+      "date": "2024-01-31",
+      "id": 1
+    }
+  ],
+  "prenotazioni": [
+    {
+      "data": "2024-02-03",
+      "ora": "12:30",
+      "ospiti": 2,
+      "nome": "Fabrizio",
+      "rist": "Zen Sushi Lounge",
+      "idUser": 1,
+      "id": 1
+    }
+  ],
+  "recensioni": [
+    {
+      "nomeCliente": "Fabrizio",
+      "commento": "Consiglio vivamente, molto buono e  sushi ricco di sapore!!\n\nP.s. Consiglio vivamente gli Hosomaki al Salmone",
+      "idRistorante": "3",
+      "id": 1
+    }
+  ]
 }
