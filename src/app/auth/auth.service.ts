@@ -88,6 +88,19 @@ export class AuthService {
     );
   }
 
+  registerRecensioni(data: {
+    nomeCliente: string;
+    commento: string;
+    idRistorante: number;
+  }) {
+    return this.http.post(`${this.userUrl}recensioni`, data).pipe(
+      tap(() => {
+        catchError(this.errors);
+      }),
+      catchError(this.errors)
+    );
+  }
+
   logout() {
     this.authSubj.next(null);
     localStorage.removeItem('user');

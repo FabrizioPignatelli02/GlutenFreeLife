@@ -6,6 +6,9 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { catchError, throwError } from 'rxjs';
 import { AuthData } from 'src/app/auth/auth-data';
 import { Ristorante } from 'src/app/interface/ristorante';
+import { Recensioni } from 'src/app/interface/recensioni';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-dettaglio-ristorante',
@@ -15,9 +18,11 @@ import { Ristorante } from 'src/app/interface/ristorante';
 export class DettaglioRistoranteComponent implements OnInit {
   utente!: AuthData | null;
   formPrenotazione!: FormGroup;
+  formRecensione!: FormGroup;
   id!: number;
   ordina!: any;
   mangia!: any;
+  recensione!: Recensioni;
   ristorante!: Ristorante;
   ApiId!: any;
   Menu!: any;
@@ -26,7 +31,13 @@ export class DettaglioRistoranteComponent implements OnInit {
   carrello: any[] = [];
   listCarrelloArray!: any;
   dataDiOggi!: any;
-  constructor(private route: ActivatedRoute, private authSrv: AuthService) {}
+  apiRecensioni!: any;
+  allRecensioni!: any;
+  constructor(
+    private route: ActivatedRoute,
+    private authSrv: AuthService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.dataDiOggi = new Date().toISOString().slice(0, 10);
@@ -49,18 +60,35 @@ export class DettaglioRistoranteComponent implements OnInit {
           rist: new FormControl(this.ristorante?.name),
           idUser: new FormControl(this.utente?.user.id),
         })),
+          (this.formRecensione = new FormGroup({
+            nomeCliente: new FormControl(this.utente?.user.nome),
+            commento: new FormControl(null, [Validators.required]),
+            idRistorante: new FormControl(this.ristorante.id),
+          })),
           catchError(this.errors);
         sessionStorage.setItem('ristorante', JSON.stringify(this.ristorante));
       });
 
     this.ordina = sessionStorage.getItem('ordina');
     this.mangia = sessionStorage.getItem('mangia');
+    this.caricaRecensioni();
     this.caricaMenu();
     this.caricaArray();
+
     console.log('itemcarrello:', this.itemCarrello);
     if (this.itemCarrello === undefined) {
       this.itemCarrello = this.item;
     }
+  }
+
+  caricaRecensioni() {
+    this.apiRecensioni = environment.userUrl + 'recensioni';
+    fetch(this.apiRecensioni)
+      .then((resp) => resp.json())
+      .then((recensioni) => {
+        console.log('Recensioni:', recensioni);
+        this.allRecensioni = recensioni;
+      });
   }
 
   caricaMenu() {
@@ -105,6 +133,12 @@ export class DettaglioRistoranteComponent implements OnInit {
   prenotazione() {
     this.authSrv.registerPrenotazioni(this.formPrenotazione.value).subscribe(),
       catchError(this.errors);
+  }
+
+  caricaRecensione() {
+    this.authSrv.registerRecensioni(this.formRecensione.value).subscribe(),
+      catchError(this.errors);
+    location.reload();
   }
 
   reset() {

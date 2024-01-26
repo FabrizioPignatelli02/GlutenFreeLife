@@ -63,5 +63,18 @@
       "id": 1
     }
   ],
-  "recensioni": []
+  "recensioni": [
+    {
+      "nomeCliente": "Fabrizio",
+      "commento": "Bello e buono Delizie!!!",
+      "idRistorante": "2",
+      "id": 1
+    },
+    {
+      "nomeCliente": "Chiara Lombardi",
+      "commento": "Chiara ha amato questo posto!!\n\np.s nonostante non gli piaccia il pesce",
+      "idRistorante": "2",
+      "id": 2
+    }
+  ]
 }

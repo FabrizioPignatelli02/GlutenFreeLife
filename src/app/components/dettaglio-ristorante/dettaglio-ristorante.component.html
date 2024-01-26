@@ -82,9 +82,18 @@
       <div class="w-50 p-5">
         <h3>Recensioni</h3>
         <div>
-          <ul class="d-flex flex-column gap-3">
-            <li></li>
+          <ul *ngFor="let item of allRecensioni" class="p-0">
+            <li
+              *ngIf="item.idRistorante == id"
+              class="d-flex flex-column align-items-start recStyle"
+            >
+              <h5>{{ item.nomeCliente }}</h5>
+              <p>{{ item.commento }}</p>
+            </li>
           </ul>
+          <h5 *ngIf="item.idRistorante !== id">
+            <h5>Non ci sono altre recensioni</h5>
+          </h5>
         </div>
       </div>
     </div>
@@ -92,13 +101,21 @@
       class="w-100 m-0 d-flex flex-column justify-content-center mt-5 gap-2 align-items-center"
     >
       <h2>Scrivi una recensione</h2>
-      <textarea
-        name="recensione"
-        id="recensione"
-        cols="100"
-        rows="5"
-      ></textarea>
-      <button class="buttonHome">INVIA</button>
+      <form
+        [formGroup]="formRecensione"
+        (ngSubmit)="caricaRecensione()"
+        class="d-flex flex-column align-items-center gap-3"
+      >
+        <textarea
+          name="recensione"
+          id="recensione"
+          cols="100"
+          rows="5"
+          required
+          formControlName="commento"
+        ></textarea>
+        <button class="buttonHome">INVIA</button>
+      </form>
     </div>
   </div>
 </div>
