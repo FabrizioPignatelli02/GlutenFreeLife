@@ -2,94 +2,15 @@
   "users": [
     {
       "email": "fabriziopignatelli26@gmail.com",
-      "password": "$2a$10$2hPAMlH8Ckx6rTPnAw5IweyZkbp8v/mXjADobr5i9Fwxbm9vz1Yd.",
+      "password": "$2a$10$.WQN9eEuy1YoKR0AELb29emn7YYrdO1gTyenAdgnThQS1Ts6WCTUe",
       "nome": "Fabrizio",
-      "id": 1
-    },
-    {
-      "email": "chiaralombardi20245@gmail.com",
-      "password": "$2a$10$Cpy2KR2XEqFMkx1FlyDWo.y9Lxjhgua0XyfPYOG.ooBnDxTQD6ATa",
-      "nome": "Chiara Lombardi",
-      "id": 2
-    }
-  ],
-  "ordini": [
-    {
-      "nome": "Zen Sushi Lounge",
-      "array": [
-        {
-          "name": "Misto Nigiri",
-          "price": 8
-        },
-        {
-          "name": "Sashimi Tonno",
-          "price": 5
-        },
-        {
-          "name": "Hosomaki Salmone",
-          "price": 8
-        },
-        {
-          "name": "Hosomaki Salmone",
-          "price": 8
-        },
-        {
-          "name": "Sashimi Tonno",
-          "price": 5
-        },
-        {
-          "name": "Misto Nigiri",
-          "price": 8
-        },
-        {
-          "name": "Sashimi Tonno",
-          "price": 5
-        }
-      ],
-      "idUser": 1,
-      "time": "20:30",
-      "date": "2024-01-24",
+      "cognome": "Pignatelli",
+      "dataNascita": "26/07/2002",
+      "età": "21",
       "id": 1
     }
   ],
-  "prenotazioni": [
-    {
-      "data": "2024-02-03",
-      "ora": "12:30",
-      "ospiti": 2,
-      "nome": "Fabrizio",
-      "rist": "Roll & Relax",
-      "idUser": 1,
-      "id": 1
-    },
-    {
-      "data": "2024-02-03",
-      "ora": "12:50",
-      "ospiti": 2,
-      "nome": "Chiara Lombardi",
-      "rist": "Zen Sushi Lounge",
-      "idUser": 2,
-      "id": 2
-    }
-  ],
-  "recensioni": [
-    {
-      "nomeCliente": "Fabrizio",
-      "commento": "Bello e buono Delizie!!!",
-      "idRistorante": "2",
-      "id": 1
-    },
-    {
-      "nomeCliente": "Chiara Lombardi",
-      "commento": "Chiara ha amato questo posto!!\n\np.s nonostante non gli piaccia il pesce",
-      "idRistorante": "2",
-      "id": 2
-    },
-    {
-      "nomeCliente": "Chiara Lombardi",
-      "commento": "Zen Sushi incredibile!",
-      "idRistorante": "3",
-      "id": 3
-    }
-  ]
+  "ordini": [],
+  "prenotazioni": [],
+  "recensioni": []
 }

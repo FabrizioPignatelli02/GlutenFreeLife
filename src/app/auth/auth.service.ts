@@ -49,7 +49,14 @@ export class AuthService {
     this.authSubj.next(userData);
   }
 
-  register(data: { nome: string; email: string; password: string }) {
+  register(data: {
+    nome: string;
+    cognome: string;
+    dataNascita: string;
+    età: string;
+    email: string;
+    password: string;
+  }) {
     return this.http.post(`${this.userUrl}users`, data).pipe(
       tap(() => {
         this.router.navigate(['/login']), catchError(this.errors);

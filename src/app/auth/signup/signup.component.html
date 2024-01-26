@@ -8,27 +8,51 @@
     <p class="text-white m-0">Registrati gratuitamente</p>
   </div>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
-    <div>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
       <input
         type="text"
         name="nome"
         id="nome"
-        placeholder="Nome Completo"
+        placeholder="Nome"
         required
         formControlName="nome"
       />
+      <input
+        type="text"
+        name="cognome"
+        id="cognome"
+        placeholder="Cognome"
+        required
+        formControlName="cognome"
+      />
     </div>
-    <div>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <input
+        type="text"
+        name="dataNascita"
+        id="dataNascita"
+        placeholder="Data di Nascita"
+        required
+        formControlName="dataNascita"
+      />
+      <input
+        type="text"
+        name="età"
+        id="età"
+        placeholder="Età"
+        required
+        formControlName="età"
+      />
+    </div>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
       <input
         type="email"
         name="email"
         id="email"
-        placeholder="email"
+        placeholder="Email"
         required
         formControlName="email"
       />
-    </div>
-    <div>
       <input
         type="password"
         name="password"
