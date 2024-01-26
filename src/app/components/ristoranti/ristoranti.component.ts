@@ -25,9 +25,6 @@ export class RistorantiComponent implements OnInit {
         console.log(ristoranti);
         this.allRistoranti = ristoranti;
       });
-  }
-
-  dettaglioRistorante(id: number) {
-    this.router.navigate([`/dettaglio/` + id]);
+    this.authSrv.restore();
   }
 }
