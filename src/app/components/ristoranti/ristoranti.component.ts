@@ -15,9 +15,6 @@ export class RistorantiComponent implements OnInit {
   constructor(private router: Router, private authSrv: AuthService) {}
 
   ngOnInit(): void {
-    this.authSrv.user$.subscribe((user) => {
-      this.utente = user;
-    });
     const apiUrl = environment.restaurantApi;
     fetch(apiUrl)
       .then((resp) => resp.json())
@@ -25,6 +22,8 @@ export class RistorantiComponent implements OnInit {
         console.log(ristoranti);
         this.allRistoranti = ristoranti;
       });
-    this.authSrv.restore();
+    this.authSrv.user$.subscribe((user) => {
+      this.utente = user;
+    });
   }
 }
