@@ -34,36 +34,35 @@
       </div>
     </div>
   </div>
-  <div class="w-100" *ngIf="mangia === 'true'">
+  <div class="w-100">
     <img class="imgRistorante" src="{{ ristorante.imglogo }}" alt="" />
-    <h2 class="mt-3">Prenota al nostro ristorante</h2>
-    <div>
-      <div id="alert" class="alert alert-danger d-none">
-        <p id="p-alert"></p>
-        <button id="button-alert"></button>
+    <div *ngIf="mangia === 'true'">
+      <h2 class="mt-3">Prenota al nostro ristorante</h2>
+
+      <div>
+        <form
+          *ngIf="utente"
+          class="d-flex flex-wrap justify-content-evenly align-items-center mt-5"
+          [formGroup]="formPrenotazione"
+          (ngSubmit)="prenotazione()"
+        >
+          <input
+            type="date"
+            min="{{ dataDiOggi }}"
+            required
+            formControlName="data"
+          />
+          <input type="time" required formControlName="ora" />
+          <input
+            type="number"
+            max="10"
+            placeholder="Ospiti...Max 10"
+            required
+            formControlName="ospiti"
+          />
+          <button class="btn btn-success">PRENOTA</button>
+        </form>
       </div>
-      <form
-        *ngIf="utente"
-        class="d-flex flex-wrap justify-content-evenly align-items-center mt-5"
-        [formGroup]="formPrenotazione"
-        (ngSubmit)="prenotazione()"
-      >
-        <input
-          type="date"
-          min="{{ dataDiOggi }}"
-          required
-          formControlName="data"
-        />
-        <input type="time" required formControlName="ora" />
-        <input
-          type="number"
-          max="10"
-          placeholder="Ospiti...Max 10"
-          required
-          formControlName="ospiti"
-        />
-        <button class="btn btn-success">PRENOTA</button>
-      </form>
     </div>
     <hr class="mt-5" />
     <div class="w-100 d-flex flex-nowrap mt-5">

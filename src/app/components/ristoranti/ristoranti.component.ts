@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Ristorante } from 'src/app/interface/ristorante';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ristoranti',
@@ -9,7 +10,7 @@ import { Ristorante } from 'src/app/interface/ristorante';
 })
 export class RistorantiComponent implements OnInit {
   allRistoranti!: any;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     const apiUrl = environment.restaurantApi;
@@ -19,5 +20,9 @@ export class RistorantiComponent implements OnInit {
         console.log(ristoranti);
         this.allRistoranti = ristoranti;
       });
+  }
+
+  dettaglioRistorante(id: number) {
+    this.router.navigate([`/dettaglio/` + id]);
   }
 }
