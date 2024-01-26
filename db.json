@@ -61,6 +61,15 @@
       "rist": "Roll & Relax",
       "idUser": 1,
       "id": 1
+    },
+    {
+      "data": "2024-02-03",
+      "ora": "12:50",
+      "ospiti": 2,
+      "nome": "Chiara Lombardi",
+      "rist": "Zen Sushi Lounge",
+      "idUser": 2,
+      "id": 2
     }
   ],
   "recensioni": [
@@ -75,6 +84,12 @@
       "commento": "Chiara ha amato questo posto!!\n\np.s nonostante non gli piaccia il pesce",
       "idRistorante": "2",
       "id": 2
+    },
+    {
+      "nomeCliente": "Chiara Lombardi",
+      "commento": "Zen Sushi incredibile!",
+      "idRistorante": "3",
+      "id": 3
     }
   ]
 }
