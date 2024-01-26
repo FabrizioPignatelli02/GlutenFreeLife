@@ -1,0 +1,23 @@
+.divProfile {
+  background-color: white;
+  padding: 25px;
+  border: 1px solid #25995b;
+  border-radius: 20px;
+  gap: 30px;
+}
+
+.divProfile * {
+  margin: 10px;
+}
+
+#imageProfile {
+  background-image: url("../../../assets/img/profileImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  border: 1px solid #25995b;
+  margin-top: 20px;
+}
