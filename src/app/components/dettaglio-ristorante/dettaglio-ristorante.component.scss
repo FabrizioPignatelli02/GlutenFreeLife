@@ -30,3 +30,13 @@
 .aCarrello i {
   cursor: pointer;
 }
+
+#recensione {
+  border: 2px solid #25995b;
+}
+
+.buttonHome:hover {
+  color: white;
+  background-color: #25995b;
+  transition: 0.75s;
+}
