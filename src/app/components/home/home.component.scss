@@ -55,3 +55,15 @@
   object-fit: cover;
   object-position: center;
 }
+
+@media screen and (max-width: 425px) {
+  .classImgTop {
+    width: 320px;
+    height: 400px;
+  }
+
+  div {
+    text-align: center;
+    align-items: center;
+  }
+}

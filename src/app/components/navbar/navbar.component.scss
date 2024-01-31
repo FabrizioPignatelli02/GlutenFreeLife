@@ -12,5 +12,12 @@ nav {
 }
 
 .gapLink {
-  gap: 450px;
+  gap: 0px;
+  align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+  .gapLink {
+    gap: 10px;
+  }
 }

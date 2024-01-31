@@ -43,6 +43,31 @@
       "time": "13:00",
       "date": "2024-01-31",
       "id": 1
+    },
+    {
+      "nome": "Zen Sushi Lounge",
+      "array": [
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Misto Nigiri",
+          "price": 8
+        },
+        {
+          "name": "Sashimi Tonno",
+          "price": 5
+        },
+        {
+          "name": "Alga",
+          "price": 3
+        }
+      ],
+      "idUser": 1,
+      "time": "13:10",
+      "date": "2024-01-27",
+      "id": 2
     }
   ],
   "prenotazioni": [
@@ -54,6 +79,15 @@
       "rist": "Zen Sushi Lounge",
       "idUser": 1,
       "id": 1
+    },
+    {
+      "data": "2024-02-10",
+      "ora": "12:06",
+      "ospiti": 5,
+      "nome": "Fabrizio",
+      "rist": "Napoli Express Pizzeria",
+      "idUser": 1,
+      "id": 2
     }
   ],
   "recensioni": [
@@ -62,6 +96,12 @@
       "commento": "Consiglio vivamente, molto buono e  sushi ricco di sapore!!\n\nP.s. Consiglio vivamente gli Hosomaki al Salmone",
       "idRistorante": "3",
       "id": 1
+    },
+    {
+      "nomeCliente": "Fabrizio",
+      "commento": "Consiglio la margherita, top anche per il prezzo!",
+      "idRistorante": "7",
+      "id": 2
     }
   ]
 }
