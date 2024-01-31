@@ -21,3 +21,9 @@
   border: 1px solid #25995b;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 425px) {
+  .divProfile {
+    font-size: 13px;
+  }
+}
