@@ -19,10 +19,15 @@ h1 {
   border: 1px solid black;
   border-radius: 20px;
   background-color: #25995b9c;
-  width: 950px;
   padding: 10px;
 }
 
 .allRestaurantDiv {
   margin-top: 250px;
+}
+
+@media screen and (max-width: 425px) {
+  h1 {
+    font-size: 1rem;
+  }
 }
