@@ -68,6 +68,35 @@
       "time": "13:10",
       "date": "2024-01-27",
       "id": 2
+    },
+    {
+      "nome": "Zen Sushi Lounge",
+      "array": [
+        {
+          "name": "Alga",
+          "price": 3
+        },
+        {
+          "name": "Misto Nigiri",
+          "price": 8
+        },
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        },
+        {
+          "name": "Sashimi Tonno",
+          "price": 5
+        },
+        {
+          "name": "Hosomaki Salmone",
+          "price": 8
+        }
+      ],
+      "idUser": 1,
+      "time": "17:00",
+      "date": "2024-02-14",
+      "id": 3
     }
   ],
   "prenotazioni": [

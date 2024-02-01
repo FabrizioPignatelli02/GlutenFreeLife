@@ -33,6 +33,10 @@
   margin: 20px;
 }
 
+.text-card {
+  padding: 20px;
+}
+
 .category:hover {
   background-color: #25995b;
   color: white;
@@ -45,14 +49,13 @@
   margin-inline: auto;
   margin-top: 50px;
   border: 1px solid black;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px;
   background-color: white;
 }
 
 .new-card img {
   height: 285px;
-  width: 500px;
+  width: 100%;
   object-fit: cover;
   object-position: center;
 }
